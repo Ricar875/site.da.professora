@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Professora Ana Lima — Espaço Educacional</title>
+<meta name="description" content="Conteúdos, atividades e vídeos educativos da Professora Ana Lima. Aprenda de forma simples, significativa e acolhedora.">
+<meta name="keywords" content="professora, aulas, atividades educativas, vídeos educativos, materiais pedagógicos, educação infantil">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Literata:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+/* ============ CONFIG VISUAL (tokens) ============ */
+:root{
+  --chalkboard: #7B5CC7;
+  --chalkboard-dark: #5B3FA0;
+  --paper: #FFF7E6;
+  --paper-card: #FFFFFF;
+  --ink: #2A241C;
+  --ink-soft: #574E3F;
+  --ochre: #FFB100;
+  --ochre-dark: #E89400;
+  --rose: #FF6B81;
+  --teal: #5EC8F2;
+  --line: #F0DFC0;
+  --radius-card: 6px 18px 6px 18px;
+  --shadow-card: 0 6px 16px rgba(42,36,28,0.10);
+  --ff-display: 'Baloo 2', system-ui, sans-serif;
+  --ff-body: 'Literata', Georgia, serif;
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  margin:0;
+  font-family:var(--ff-body);
+  background:var(--paper);
+  color:var(--ink);
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%;display:block;}
+a{color:inherit;}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px;}
+h1,h2,h3,h4{font-family:var(--ff-display);margin:0 0 .4em;font-weight:700;color:var(--chalkboard-dark);}
+p{max-width:62ch;}
+section{padding:88px 0;}
+.section-head{max-width:640px;margin-bottom:44px;}
+.section-head h2{font-size:clamp(1.6rem,3vw,2.3rem);}
+.section-head p{color:var(--ink-soft);font-size:1.05rem;}
+.chalk-underline{width:120px;height:10px;margin:10px 0 0;display:block;}
+
+/* focus visibility */
+a:focus-visible, button:focus-visible{outline:3px solid var(--ochre-dark);outline-offset:3px;}
+@media (prefers-reduced-motion: reduce){*{animation:none !important;transition:none !important;}}
+
+/* ============ NAV ============ */
+header.nav{
+  position:sticky;top:0;z-index:50;
+  background:rgba(250,244,232,0.92);
+  backdrop-filter:blur(6px);
+  border-bottom:1px solid var(--line);
+}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;padding:14px 24px;max-width:1120px;margin:0 auto;}
+.brand{font-family:var(--ff-display);font-weight:700;font-size:1.15rem;color:var(--chalkboard-dark);text-decoration:none;display:flex;align-items:center;gap:8px;}
+.brand-dot{width:10px;height:10px;border-radius:50%;background:var(--ochre);}
+.nav-links{display:flex;gap:26px;list-style:none;margin:0;padding:0;}
+.nav-links a{text-decoration:none;font-size:.95rem;color:var(--ink);font-family:var(--ff-body);border-bottom:2px solid transparent;padding-bottom:2px;}
+.nav-links a:hover{border-color:var(--ochre);}
+.nav-toggle{display:none;background:none;border:none;font-size:1.6rem;color:var(--chalkboard-dark);cursor:pointer;}
+@media (max-width:840px){
+  .nav-links{position:fixed;top:60px;left:0;right:0;background:var(--paper);flex-direction:column;gap:0;border-bottom:1px solid var(--line);max-height:0;overflow:hidden;transition:max-height .25s ease;}
+  .nav-links.open{max-height:520px;}
+  .nav-links li{border-top:1px solid var(--line);}
+  .nav-links a{display:block;padding:14px 24px;}
+  .nav-toggle{display:block;}
+}
+
+/* ============ HERO ============ */
+.hero{
+  background:radial-gradient(circle at 15% 20%, rgba(255,255,255,0.08), transparent 40%), linear-gradient(155deg, var(--chalkboard-dark) 0%, var(--chalkboard) 55%, var(--teal) 130%);
+  color:#F3EFE2;
+  position:relative;
+  overflow:hidden;
+}
+.hero::after{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.035) 1px, transparent 1px);
+  background-size:100% 42px;
+  opacity:.5;
+}
+.hero-inner{
+  position:relative;z-index:1;
+  max-width:1120px;margin:0 auto;padding:100px 24px 90px;
+  display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:center;
+}
+@media (max-width:840px){.hero-inner{grid-template-columns:1fr;padding-top:64px;}}
+.eyebrow{font-family:var(--ff-body);font-style:italic;color:#CFE3D6;font-size:1.05rem;margin-bottom:14px;}
+.hero h1{color:#FBF8F0;font-size:clamp(2.1rem,4.2vw,3.1rem);line-height:1.15;max-width:14ch;}
+.hero p.lead{color:#D9E4DA;font-size:1.15rem;max-width:46ch;margin-top:18px;}
+.hero-ctas{display:flex;gap:16px;margin-top:34px;flex-wrap:wrap;}
+.btn{
+  font-family:var(--ff-display);font-weight:600;font-size:.98rem;
+  padding:14px 26px;border-radius:40px;text-decoration:none;
+  display:inline-flex;align-items:center;gap:8px;cursor:pointer;border:none;
+}
+.btn-chalk{
+  background:transparent;color:#FBF8F0;border:2px dashed rgba(251,248,240,0.65);
+}
+.btn-chalk:hover{border-style:solid;border-color:#FBF8F0;}
+.btn-solid{background:var(--ochre);color:#2A241C;}
+.btn-solid:hover{background:var(--ochre-dark);}
+.hero-photo{
+  position:relative;
+  background:var(--paper-card);
+  border-radius:8px;
+  padding:14px 14px 46px;
+  box-shadow:0 18px 40px rgba(0,0,0,0.28);
+  transform:rotate(2deg);
+}
+.hero-photo .frame{
+  aspect-ratio:4/5;border-radius:4px;overflow:hidden;
+  background:linear-gradient(155deg,#8FB6A6,#4F7566 55%,#31503F);
+  display:flex;align-items:center;justify-content:center;
+}
+.hero-photo svg{width:62%;opacity:.92;}
+.hero-photo figcaption{
+  font-family:var(--ff-display);color:var(--ink);text-align:center;
+  margin-top:12px;font-size:.92rem;font-weight:600;
+}
+.tape{
+  position:absolute;top:-14px;left:50%;transform:translateX(-50%) rotate(-3deg);
+  width:90px;height:26px;background:rgba(216,115,122,0.55);
+}
+
+/* ============ SOBRE ============ */
+.sobre{background:var(--paper);}
+.sobre-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:56px;align-items:start;}
+@media (max-width:840px){.sobre-grid{grid-template-columns:1fr;}}
+.sobre-facts{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:16px;}
+.sobre-facts li{border-left:3px solid var(--ochre);padding:2px 0 2px 16px;}
+.sobre-facts b{display:block;font-family:var(--ff-display);color:var(--chalkboard-dark);font-size:.85rem;text-transform:none;}
+.sobre-facts span{color:var(--ink-soft);font-size:.96rem;}
+
+/* ============ CARDS GRID (áreas, projetos, blog) ============ */
+.grid{display:grid;gap:26px;}
+.grid-3{grid-template-columns:repeat(3,1fr);}
+.grid-2{grid-template-columns:repeat(2,1fr);}
+@media (max-width:900px){.grid-3{grid-template-columns:repeat(2,1fr);}}
+@media (max-width:640px){.grid-3,.grid-2{grid-template-columns:1fr;}}
+
+.card{
+  background:var(--paper-card);
+  border-radius:var(--radius-card);
+  box-shadow:var(--shadow-card);
+  padding:26px 24px;
+  border:1px solid var(--line);
+}
+.card:nth-child(odd){transform:rotate(-0.6deg);}
+.card:nth-child(even){transform:rotate(0.5deg);}
+.card .icon{
+  width:44px;height:44px;border-radius:50%;
+  background:var(--teal);color:#fff;
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--ff-display);font-weight:700;margin-bottom:14px;
+}
+.card h3{font-size:1.15rem;margin-bottom:8px;}
+.card p{color:var(--ink-soft);font-size:.96rem;}
+.card .tag{
+  display:inline-block;font-family:var(--ff-display);font-size:.75rem;
+  color:var(--chalkboard-dark);background:#E7EFE6;padding:3px 10px;border-radius:20px;margin-top:10px;
+}
+
+/* ============ VIDEOS ============ */
+.videos{background:var(--chalkboard);color:#EFE9DA;}
+.videos .section-head h2{color:#FBF8F0;}
+.videos .section-head p{color:#CBD8CE;}
+.video-card{
+  background:#1F332A;border-radius:10px;overflow:hidden;border:1px solid rgba(255,255,255,0.08);
+}
+.video-thumb{
+  aspect-ratio:16/9;background:linear-gradient(135deg,#3C5A4A,#213A2E);
+  display:flex;align-items:center;justify-content:center;position:relative;
+}
+.play-btn{
+  width:56px;height:56px;border-radius:50%;background:var(--ochre);
+  display:flex;align-items:center;justify-content:center;
+}
+.play-btn svg{width:20px;height:20px;fill:#2A241C;margin-left:3px;}
+.video-body{padding:18px 20px 22px;}
+.video-body h3{color:#FBF8F0;font-size:1.05rem;margin-bottom:6px;}
+.video-body p{color:#C3CFC6;font-size:.9rem;}
+.video-body .tag{background:rgba(255,255,255,0.08);color:#E7EFE6;}
+.video-cta{
+  margin-top:12px;font-family:var(--ff-display);font-size:.85rem;font-weight:600;
+  color:var(--ochre);text-decoration:none;display:inline-flex;align-items:center;gap:6px;
+}
+
+/* ============ ATIVIDADES / MATERIAIS ============ */
+.filters{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:30px;}
+.filter-pill{
+  font-family:var(--ff-display);font-size:.85rem;font-weight:600;
+  padding:8px 16px;border-radius:20px;border:1px solid var(--line);
+  background:var(--paper-card);cursor:pointer;color:var(--ink-soft);
+}
+.filter-pill.active{background:var(--chalkboard);color:#FBF8F0;border-color:var(--chalkboard);}
+.list-item{
+  display:grid;grid-template-columns:auto 1fr auto;gap:18px;align-items:center;
+  background:var(--paper-card);border:1px solid var(--line);border-radius:10px;
+  padding:18px 20px;margin-bottom:14px;
+}
+@media (max-width:640px){.list-item{grid-template-columns:1fr;text-align:left;}}
+.list-item .num{
+  font-family:var(--ff-display);font-size:1.4rem;color:var(--ochre-dark);font-weight:700;min-width:44px;
+}
+.list-item h4{margin:0 0 4px;font-size:1.05rem;font-family:var(--ff-display);color:var(--chalkboard-dark);}
+.list-item p{margin:0;font-size:.9rem;color:var(--ink-soft);}
+.list-item .meta{font-size:.8rem;color:var(--teal);font-family:var(--ff-display);margin-bottom:4px;}
+.link-btn{
+  font-family:var(--ff-display);font-size:.85rem;font-weight:600;color:var(--chalkboard-dark);
+  border:1.5px solid var(--chalkboard);border-radius:20px;padding:8px 16px;text-decoration:none;white-space:nowrap;
+}
+.link-btn:hover{background:var(--chalkboard);color:#fff;}
+
+/* ============ VÍDEO DESTAQUE ============ */
+.video-card-full{display:grid;grid-template-columns:1.1fr 1fr;}
+@media (max-width:720px){.video-card-full{grid-template-columns:1fr;}}
+.video-card-full .video-thumb{aspect-ratio:auto;height:100%;min-height:220px;}
+.video-card-full .video-body{display:flex;flex-direction:column;justify-content:center;padding:28px 30px;}
+.video-card-full .video-body p{font-size:.98rem;}
+
+/* ============ DEPOIMENTOS ============ */
+.depoimento{position:relative;}
+.depoimento .quote-mark{font-family:var(--ff-display);font-size:2.6rem;color:var(--ochre);line-height:1;margin-bottom:2px;display:block;}
+.depoimento p.texto{color:var(--ink-soft);font-style:italic;font-size:.98rem;}
+.depoimento .autor{margin-top:14px;font-family:var(--ff-display);font-weight:600;color:var(--chalkboard-dark);font-size:.92rem;}
+.depoimento .papel{font-size:.82rem;color:var(--teal);}
+
+/* ============ PEDIDO ============ */
+.pedido-form{max-width:640px;display:flex;flex-direction:column;gap:14px;}
+.pedido-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+@media (max-width:640px){.pedido-row{grid-template-columns:1fr;}}
+.pedido-form input,.pedido-form textarea{
+  font-family:var(--ff-body);padding:13px 14px;border-radius:8px;border:1px solid var(--line);
+  background:var(--paper-card);color:var(--ink);font-size:.95rem;
+}
+.pedido-form button{align-self:flex-start;}
+
+/* ============ BLOG ============ */
+.blog-card p.excerpt{color:var(--ink-soft);font-size:.92rem;}
+.blog-card .date{font-family:var(--ff-display);font-size:.78rem;color:var(--teal);}
+
+/* ============ FAMÍLIA ============ */
+.familia{background:#F1E9D8;}
+.familia-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;}
+@media (max-width:640px){.familia-grid{grid-template-columns:1fr;}}
+.familia-item{background:var(--paper-card);border-left:4px solid var(--rose);border-radius:0 10px 10px 0;padding:18px 20px;}
+.familia-item h4{font-family:var(--ff-display);font-size:1rem;margin-bottom:4px;color:var(--chalkboard-dark);}
+.familia-item p{margin:0;font-size:.9rem;color:var(--ink-soft);}
+
+/* ============ REDES ============ */
+.redes{text-align:left;}
+.redes-row{display:flex;gap:14px;flex-wrap:wrap;margin-top:8px;}
+.social-btn{
+  display:flex;align-items:center;gap:8px;padding:11px 18px;border-radius:24px;
+  background:var(--paper-card);border:1px solid var(--line);text-decoration:none;
+  font-family:var(--ff-display);font-size:.88rem;font-weight:600;color:var(--ink);
+}
+.social-btn:hover{border-color:var(--ochre-dark);}
+
+/* ============ CONTATO ============ */
+.contato{background:var(--chalkboard-dark);color:#EFE9DA;}
+.contato .section-head h2{color:#FBF8F0;}
+.contato .section-head p{color:#CBD8CE;}
+.contato-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;}
+@media (max-width:840px){.contato-grid{grid-template-columns:1fr;}}
+.contato-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:16px;}
+.contato-list li{display:flex;gap:12px;align-items:flex-start;font-size:.98rem;}
+.contato-list b{display:block;font-family:var(--ff-display);font-size:.85rem;color:var(--ochre);}
+form.contato-form{display:flex;flex-direction:column;gap:14px;}
+form.contato-form input,form.contato-form textarea{
+  font-family:var(--ff-body);padding:13px 14px;border-radius:8px;border:1px solid rgba(255,255,255,0.18);
+  background:rgba(255,255,255,0.06);color:#F3EFE2;font-size:.95rem;
+}
+form.contato-form input::placeholder,form.contato-form textarea::placeholder{color:#9FADA4;}
+form.contato-form button{align-self:flex-start;}
+
+footer{
+  background:var(--chalkboard-dark);color:#9FADA4;text-align:center;
+  padding:26px 24px;font-size:.85rem;border-top:1px solid rgba(255,255,255,0.08);
+}
+
+/* whatsapp float */
+.wa-float{
+  position:fixed;bottom:22px;right:22px;z-index:60;
+  width:58px;height:58px;border-radius:50%;background:#3FA24A;
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 8px 20px rgba(0,0,0,0.3);text-decoration:none;
+}
+.wa-float svg{width:28px;height:28px;fill:#fff;}
+</style>
+</head>
+<body>
+
+<!-- =========================================================
+  CONFIG: edite os dados abaixo para personalizar o site.
+  Troque textos, links e listas — o resto do arquivo só lê daqui.
+========================================================== -->
+<script>
+const CONFIG = {
+  professora: {
+    nome: "Ana Lima",
+    tituloPagina: "Professora Ana Lima",
+    tagline: "Educação que transforma conhecimento em possibilidades.",
+    subtitulo: "Conteúdos, atividades e experiências educativas para aprender de forma simples, significativa e acolhida.",
+    fotoLegenda: "Prof.ª Ana Lima",
+    sobreTexto: [
+      "Sou professora há 12 anos e trabalho com educação infantil e alfabetização em Paulo Afonso. Minha missão é transformar conteúdo em algo que a criança realmente entende — e que a família consegue continuar em casa.",
+      "Ao longo desses anos venho compartilhando atividades, vídeos e materiais nas redes sociais, e este espaço reúne tudo isso de um jeito organizado, para que qualquer família ou colega de profissão encontre com facilidade."
+    ],
+    fatos: [
+      { label: "Formação", valor: "Pedagogia (UNEB) e Pós em Alfabetização e Letramento" },
+      { label: "Experiência", valor: "12 anos em sala de aula, educação infantil e fundamental I" },
+      { label: "Metodologia", valor: "Aprendizagem ativa, lúdica e centrada na criança" },
+      { label: "Público", valor: "Alunos de 4 a 9 anos, famílias e professores da rede" }
+    ]
+  },
+  videoDestaque: {
+    titulo: "Conheça meu trabalho",
+    descricao: "Um vídeo curto contando quem eu sou, como ensino e o que você encontra aqui no site.",
+    link: "#"
+  },
+  depoimentos: [
+    { nome: "Mariana Souza", papel: "Mãe do Théo, 6 anos", texto: "As atividades da professora Ana mudaram a relação do meu filho com a leitura. Ele pede pra estudar!" },
+    { nome: "Carla Reis", papel: "Coordenadora pedagógica", texto: "Material muito bem pensado, fácil de aplicar em sala e com resultado visível nas turmas." },
+    { nome: "Fernanda Dias", papel: "Mãe da Alice, 5 anos", texto: "Os vídeos são curtos e explicam muito bem. Uso as ideias dela com a Alice todo fim de semana." }
+  ],
+  contato: {
+    whatsapp: "5575999999999",
+    telefone: "(75) 99999-9999",
+    email: "contato@profanalima.com.br",
+    localizacao: "Paulo Afonso, BA",
+    instagram: "#",
+    facebook: "#",
+    youtube: "#",
+    tiktok: "#"
+  },
+  areas: [
+    { titulo: "Alfabetização", texto: "Métodos lúdicos para a criança aprender a ler e escrever no próprio ritmo.", tag: "4 a 7 anos" },
+    { titulo: "Matemática na prática", texto: "Jogos e materiais concretos para entender números sem decorar.", tag: "5 a 9 anos" },
+    { titulo: "Desenvolvimento socioemocional", texto: "Atividades que trabalham escuta, empatia e autoconfiança.", tag: "Todas as idades" },
+    { titulo: "Leitura em família", texto: "Como criar o hábito da leitura em casa, com dicas simples.", tag: "Para famílias" },
+    { titulo: "Recursos para professores", texto: "Planejamentos e ideias prontas para usar em sala de aula.", tag: "Para docentes" },
+    { titulo: "Rotina e organização", texto: "Ferramentas para estruturar a rotina de estudos em casa.", tag: "Para famílias" }
+  ],
+  videos: [
+    { titulo: "Como ensinar as sílabas brincando", tema: "Alfabetização", descricao: "Uma atividade simples com bolinhas de papel para fixar sílabas.", link: "#" },
+    { titulo: "Matemática com tampinhas", tema: "Matemática", descricao: "Material reciclado para contagem e adição nos primeiros anos.", link: "#" },
+    { titulo: "Roda de conversa: como foi seu dia?", tema: "Socioemocional", descricao: "Uma dinâmica de 10 minutos para começar a aula com escuta.", link: "#" }
+  ],
+  atividades: [
+    { titulo: "Caça-sílabas ilustrado", objetivo: "Reconhecer sílabas simples", faixa: "5 a 6 anos", disciplina: "Alfabetização" },
+    { titulo: "Reta numérica no chão", objetivo: "Compreender sequência numérica", faixa: "6 a 8 anos", disciplina: "Matemática" },
+    { titulo: "Caixa das emoções", objetivo: "Nomear e falar sobre sentimentos", faixa: "4 a 9 anos", disciplina: "Socioemocional" },
+    { titulo: "Diário de leitura da família", objetivo: "Criar rotina de leitura em casa", faixa: "Todas", disciplina: "Leitura" }
+  ],
+  materiais: [
+    { titulo: "Ficha de sílabas para imprimir", tipo: "PDF" },
+    { titulo: "Jogo da memória — números", tipo: "PDF" },
+    { titulo: "Guia para pais: rotina de estudos", tipo: "PDF" },
+    { titulo: "Cartaz do alfabeto ilustrado", tipo: "PDF" }
+  ],
+  projetos: [
+    { titulo: "Projeto Sementinhas de Leitura", texto: "Ação para levar livros e rodas de leitura a famílias da comunidade." },
+    { titulo: "Feira de Matemática Viva", texto: "Feira anual com jogos matemáticos construídos pelos próprios alunos." },
+    { titulo: "Oficina de Pais na Escola", texto: "Encontros mensais para orientar famílias sobre a alfabetização dos filhos." }
+  ],
+  blog: [
+    { titulo: "Como tornar a aprendizagem mais significativa", data: "Ago 2026", resumo: "Pequenas mudanças na forma de ensinar que fazem grande diferença no aprendizado." },
+    { titulo: "Atividades para desenvolver a criatividade", data: "Jul 2026", resumo: "Ideias simples com materiais que você já tem em casa." },
+    { titulo: "A importância da família na educação", data: "Jun 2026", resumo: "Por que o que acontece em casa impacta tanto quanto a sala de aula." }
+  ],
+  familia: [
+    { titulo: "15 minutos de leitura por dia", texto: "Um hábito pequeno que muda o desempenho escolar a longo prazo." },
+    { titulo: "Rotina visual em casa", texto: "Use um quadro simples com os horários do dia para dar previsibilidade." },
+    { titulo: "Converse sobre a escola sem cobrar nota", texto: "Perguntas abertas ajudam mais do que perguntar só sobre notas." },
+    { titulo: "Brincar também é aprender", texto: "Jogos de tabuleiro simples desenvolvem raciocínio e paciência." }
+  ]
+};
+</script>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="#topo"><span class="brand-dot"></span><span id="nav-nome"></span></a>
+    <button class="nav-toggle" id="navToggle" aria-label="Abrir menu">☰</button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#sobre">Sobre</a></li>
+      <li><a href="#areas">Áreas</a></li>
+      <li><a href="#videos">Vídeos</a></li>
+      <li><a href="#atividades">Atividades</a></li>
+      <li><a href="#materiais">Materiais</a></li>
+      <li><a href="#pedido">Fazer pedido</a></li>
+      <li><a href="#depoimentos">Depoimentos</a></li>
+      <li><a href="#blog">Blog</a></li>
+      <li><a href="#familia">Para famílias</a></li>
+      <li><a href="#contato">Contato</a></li>
+    </ul>
+  </div>
+</header>
+
+<section class="hero" id="topo">
+  <div class="hero-inner">
+    <div>
+      <p class="eyebrow">Espaço Educacional</p>
+      <h1 id="hero-tagline"></h1>
+      <p class="lead" id="hero-subtitulo"></p>
+      <div class="hero-ctas">
+        <a href="#sobre" class="btn btn-chalk">Conheça meu trabalho</a>
+        <a href="#" id="hero-wa" class="btn btn-solid">Falar pelo WhatsApp</a>
+      </div>
+    </div>
+    <figure class="hero-photo">
+      <div class="tape"></div>
+      <div class="frame">
+        <svg viewBox="0 0 200 220" width="100%" height="100%">
+          <circle cx="34" cy="30" r="10" fill="#FF6B81" opacity="0.85"/>
+          <circle cx="176" cy="56" r="6" fill="#29C5D6" opacity="0.9"/>
+          <path d="M150 24 l4 9 9 4 -9 4 -4 9 -4 -9 -9 -4 9 -4 z" fill="#FFB100"/>
+          <ellipse cx="100" cy="195" rx="66" ry="10" fill="#000" opacity="0.10"/>
+          <path d="M40 150 C40 110 60 92 100 92 C140 92 160 110 160 150 L160 168 C160 176 152 182 140 182 L60 182 C48 182 40 176 40 168 Z" fill="#FFFFFF"/>
+          <circle cx="100" cy="66" r="30" fill="#F6C7A0"/>
+          <path d="M70 58 C70 34 130 34 130 58 C130 44 116 40 100 40 C84 40 70 44 70 58 Z" fill="#2A241C"/>
+          <circle cx="88" cy="68" r="3.4" fill="#2A241C"/>
+          <circle cx="112" cy="68" r="3.4" fill="#2A241C"/>
+          <path d="M90 80 Q100 88 110 80" stroke="#2A241C" stroke-width="2.4" fill="none" stroke-linecap="round"/>
+          <path d="M62 150 L138 150 L134 182 L66 182 Z" fill="#FFB100"/>
+          <path d="M62 150 L100 138 L138 150 L100 162 Z" fill="#FFD770"/>
+          <path d="M78 158 L122 158 M78 168 L122 168" stroke="#E89400" stroke-width="2.5" stroke-linecap="round"/>
+          <path d="M24 130 q10 -14 10 4" stroke="#29C5D6" stroke-width="5" fill="none" stroke-linecap="round"/>
+          <path d="M176 130 q-10 -14 -10 4" stroke="#FF6B81" stroke-width="5" fill="none" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <figcaption id="hero-foto-legenda"></figcaption>
+    </figure>
+  </div>
+</section>
+
+<section id="video-destaque" style="padding:60px 0;">
+  <div class="wrap">
+    <div class="video-card video-card-full">
+      <div class="video-thumb">
+        <div class="play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+      </div>
+      <div class="video-body">
+        <h3 id="videodestaque-titulo" style="font-size:1.3rem;"></h3>
+        <p id="videodestaque-desc"></p>
+        <a class="video-cta" id="videodestaque-link" href="#" target="_blank" rel="noopener">Assistir vídeo →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sobre" id="sobre">
+  <div class="wrap sobre-grid">
+    <div>
+      <div class="section-head" style="margin-bottom:24px;">
+        <h2>Sobre mim</h2>
+      </div>
+      <ul class="sobre-facts" id="sobre-fatos"></ul>
+    </div>
+    <div id="sobre-texto"></div>
+  </div>
+</section>
+
+<section id="areas">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Áreas de atuação</h2>
+      <p>Os principais temas que trabalho, organizados para você encontrar rápido o que precisa.</p>
+    </div>
+    <div class="grid grid-3" id="areas-grid"></div>
+  </div>
+</section>
+
+<section class="videos" id="videos">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Aprenda comigo</h2>
+      <p>Vídeos com atividades e explicações práticas, direto da sala de aula para a sua casa.</p>
+    </div>
+    <div class="grid grid-3" id="videos-grid"></div>
+  </div>
+</section>
+
+<section id="atividades">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Biblioteca de atividades</h2>
+      <p>Atividades organizadas por faixa etária, disciplina e objetivo pedagógico.</p>
+    </div>
+    <div id="atividades-lista"></div>
+  </div>
+</section>
+
+<section id="materiais" style="background:#F1E9D8;">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Materiais pedagógicos</h2>
+      <p>Fichas, jogos e guias prontos para baixar e usar em sala ou em casa.</p>
+    </div>
+    <div class="grid grid-2" id="materiais-grid"></div>
+  </div>
+</section>
+
+<section id="pedido">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Peça seu material</h2>
+      <p>Quer um material personalizado para sua turma ou seu filho? Preencha e eu te respondo pelo WhatsApp.</p>
+    </div>
+    <form class="pedido-form" id="pedidoForm">
+      <div class="pedido-row">
+        <input type="text" name="nome" placeholder="Seu nome" required>
+        <input type="text" name="material" placeholder="Material desejado (ex: ficha de sílabas)" required>
+      </div>
+      <div class="pedido-row">
+        <input type="text" name="turma" placeholder="Faixa etária / turma">
+        <input type="text" name="quantidade" placeholder="Quantidade">
+      </div>
+      <textarea name="observacoes" rows="3" placeholder="Alguma observação? (opcional)"></textarea>
+      <button type="submit" class="btn btn-solid">Enviar pedido pelo WhatsApp</button>
+    </form>
+  </div>
+</section>
+
+<section id="projetos">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Projetos educacionais</h2>
+      <p>Iniciativas que desenvolvo com a escola e com a comunidade.</p>
+    </div>
+    <div class="grid grid-3" id="projetos-grid"></div>
+  </div>
+</section>
+
+<section id="depoimentos">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>O que dizem sobre o meu trabalho</h2>
+      <p>Relatos de famílias e colegas de profissão que acompanham o meu trabalho.</p>
+    </div>
+    <div class="grid grid-3" id="depoimentos-grid"></div>
+  </div>
+</section>
+
+<section id="blog" style="background:#F1E9D8;">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Blog</h2>
+      <p>Reflexões e dicas curtas sobre educação, direto da minha experiência.</p>
+    </div>
+    <div class="grid grid-3" id="blog-grid"></div>
+  </div>
+</section>
+
+<section class="familia" id="familia">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Para pais e famílias</h2>
+      <p>Orientações simples para apoiar o aprendizado em casa.</p>
+    </div>
+    <div class="familia-grid" id="familia-grid"></div>
+  </div>
+</section>
+
+<section class="redes">
+  <div class="wrap">
+    <div class="section-head" style="margin-bottom:16px;">
+      <h2>Continue acompanhando meu trabalho</h2>
+    </div>
+    <div class="redes-row" id="redes-row"></div>
+  </div>
+</section>
+
+<section class="contato" id="contato">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Contato</h2>
+      <p>Tem uma dúvida, sugestão ou quer conversar sobre uma parceria? Escreva pra mim.</p>
+    </div>
+    <div class="contato-grid">
+      <ul class="contato-list" id="contato-lista"></ul>
+      <form class="contato-form" onsubmit="event.preventDefault(); window.location.href='https://wa.me/'+CONFIG.contato.whatsapp+'?text='+encodeURIComponent('Olá, '+CONFIG.professora.nome+'! Meu nome é '+this.nome.value+'. '+this.mensagem.value);">
+        <input type="text" name="nome" placeholder="Seu nome" required>
+        <input type="email" name="email" placeholder="Seu e-mail" required>
+        <textarea name="mensagem" rows="4" placeholder="Sua mensagem" required></textarea>
+        <button type="submit" class="btn btn-solid">Enviar mensagem</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span id="footer-texto"></span>
+</footer>
+
+<a class="wa-float" id="wa-float" href="#" target="_blank" rel="noopener" aria-label="Falar no WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12c0 1.85.5 3.58 1.36 5.07L2 22l5.06-1.33A9.94 9.94 0 0012 22c5.52 0 10-4.48 10-10S17.52 2 12 2zm5.2 14.2c-.22.62-1.28 1.2-1.77 1.24-.46.05-.9.24-3.03-.63-2.56-1.05-4.2-3.65-4.33-3.82-.13-.17-1.02-1.36-1.02-2.6s.65-1.84.88-2.1c.22-.24.5-.3.66-.3h.48c.15 0 .36-.03.55.42.2.48.68 1.65.74 1.77.06.12.1.27.02.43-.08.17-.12.27-.24.42-.12.14-.25.32-.36.43-.12.12-.24.25-.1.5.14.25.63 1.04 1.35 1.69.93.83 1.72 1.09 1.97 1.21.25.12.4.1.55-.06.15-.17.62-.72.79-.97.17-.25.34-.2.56-.12.23.08 1.44.68 1.68.8.25.13.41.19.47.3.06.1.06.6-.16 1.22z"/></svg>
+</a>
+
+<script>
+const $ = (sel) => document.querySelector(sel);
+const c = CONFIG;
+
+document.title = c.professora.tituloPagina + " — Espaço Educacional";
+$('#nav-nome').textContent = c.professora.nome;
+$('#hero-tagline').textContent = c.professora.tagline;
+$('#hero-subtitulo').textContent = c.professora.subtitulo;
+$('#hero-foto-legenda').textContent = c.professora.fotoLegenda;
+$('#footer-texto').textContent = '© ' + new Date().getFullYear() + ' · ' + c.professora.nome + ' · Todos os direitos reservados';
+
+const waLink = 'https://wa.me/' + c.contato.whatsapp + '?text=' + encodeURIComponent('Olá, ' + c.professora.nome + '! Vim pelo site.');
+$('#hero-wa').href = waLink;
+$('#wa-float').href = waLink;
+
+$('#videodestaque-titulo').textContent = c.videoDestaque.titulo;
+$('#videodestaque-desc').textContent = c.videoDestaque.descricao;
+$('#videodestaque-link').href = c.videoDestaque.link;
+
+$('#depoimentos-grid').innerHTML = c.depoimentos.map(d => `
+  <div class="card depoimento">
+    <span class="quote-mark">"</span>
+    <p class="texto">${d.texto}</p>
+    <div class="autor">${d.nome}</div>
+    <div class="papel">${d.papel}</div>
+  </div>`).join('');
+
+const pedidoForm = document.getElementById('pedidoForm');
+pedidoForm.addEventListener('submit', (e) => {
+  e.preventDefault();
+  const f = e.target;
+  const msg = `Olá, ${c.professora.nome}! Meu nome é ${f.nome.value}. Gostaria de pedir: ${f.material.value}` +
+    (f.turma.value ? ` (turma/faixa etária: ${f.turma.value})` : '') +
+    (f.quantidade.value ? `, quantidade: ${f.quantidade.value}` : '') +
+    (f.observacoes.value ? `. Observações: ${f.observacoes.value}` : '');
+  window.location.href = 'https://wa.me/' + c.contato.whatsapp + '?text=' + encodeURIComponent(msg);
+});
+
+$('#sobre-texto').innerHTML = c.professora.sobreTexto.map(p => `<p>${p}</p>`).join('');
+$('#sobre-fatos').innerHTML = c.professora.fatos.map(f => `<li><b>${f.label}</b><span>${f.valor}</span></li>`).join('');
+
+$('#areas-grid').innerHTML = c.areas.map(a => `
+  <div class="card">
+    <div class="icon">${a.titulo.charAt(0)}</div>
+    <h3>${a.titulo}</h3>
+    <p>${a.texto}</p>
+    <span class="tag">${a.tag}</span>
+  </div>`).join('');
+
+$('#videos-grid').innerHTML = c.videos.map(v => `
+  <div class="video-card">
+    <div class="video-thumb"><div class="play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
+    <div class="video-body">
+      <span class="tag">${v.tema}</span>
+      <h3>${v.titulo}</h3>
+      <p>${v.descricao}</p>
+      <a class="video-cta" href="${v.link}" target="_blank" rel="noopener">Assistir →</a>
+    </div>
+  </div>`).join('');
+
+$('#atividades-lista').innerHTML = c.atividades.map((a, i) => `
+  <div class="list-item">
+    <div class="num">${String(i+1).padStart(2,'0')}</div>
+    <div>
+      <div class="meta">${a.disciplina} · ${a.faixa}</div>
+      <h4>${a.titulo}</h4>
+      <p>Objetivo: ${a.objetivo}</p>
+    </div>
+    <a class="link-btn" href="#">Ver atividade</a>
+  </div>`).join('');
+
+$('#materiais-grid').innerHTML = c.materiais.map(m => `
+  <div class="card">
+    <span class="tag">${m.tipo}</span>
+    <h3 style="margin-top:10px;">${m.titulo}</h3>
+    <a class="link-btn" href="#" style="margin-top:10px;display:inline-block;">Baixar material</a>
+  </div>`).join('');
+
+$('#projetos-grid').innerHTML = c.projetos.map(p => `
+  <div class="card">
+    <h3>${p.titulo}</h3>
+    <p>${p.texto}</p>
+  </div>`).join('');
+
+$('#blog-grid').innerHTML = c.blog.map(b => `
+  <div class="card blog-card">
+    <span class="date">${b.data}</span>
+    <h3>${b.titulo}</h3>
+    <p class="excerpt">${b.resumo}</p>
+  </div>`).join('');
+
+$('#familia-grid').innerHTML = c.familia.map(f => `
+  <div class="familia-item">
+    <h4>${f.titulo}</h4>
+    <p>${f.texto}</p>
+  </div>`).join('');
+
+const redes = [
+  { nome: 'Instagram', url: c.contato.instagram },
+  { nome: 'Facebook', url: c.contato.facebook },
+  { nome: 'YouTube', url: c.contato.youtube },
+  { nome: 'TikTok', url: c.contato.tiktok },
+  { nome: 'WhatsApp', url: waLink }
+];
+$('#redes-row').innerHTML = redes.map(r => `<a class="social-btn" href="${r.url}" target="_blank" rel="noopener">${r.nome}</a>`).join('');
+
+$('#contato-lista').innerHTML = `
+  <li><div><b>WhatsApp</b>${c.contato.telefone}</div></li>
+  <li><div><b>E-mail</b>${c.contato.email}</div></li>
+  <li><div><b>Localização</b>${c.contato.localizacao}</div></li>
+`;
+
+const navToggle = $('#navToggle');
+const navLinks = $('#navLinks');
+navToggle.addEventListener('click', () => navLinks.classList.toggle('open'));
+navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
+</script>
+
+</body>
+</html>
